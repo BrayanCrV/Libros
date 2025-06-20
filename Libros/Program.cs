@@ -10,7 +10,7 @@ if (string.IsNullOrEmpty(connectionString))
     connectionString = Environment.GetEnvironmentVariable("MY_SQL_CONNECTION");
     if (string.IsNullOrEmpty(connectionString))
     {
-        throw new Exception("No se encontró la cadena de conexión en appsettings.json ni en la variable de entorno MY_SQL_CONNECTION");
+        throw new Exception("No se encontrï¿½ la cadena de conexiï¿½n en appsettings.json ni en la variable de entorno MY_SQL_CONNECTION");
     }
 }
 
@@ -27,11 +27,10 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
+
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+
 
 app.UseHttpsRedirection();
 

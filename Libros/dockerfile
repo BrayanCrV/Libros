@@ -1,0 +1,15 @@
+# Etapa base - Solo runtime necesario
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+WORKDIR /app
+EXPOSE 5000
+
+# Copia SOLO los archivos necesarios para ejecución
+COPY bin/Release/net8.0/ ./
+
+# Variables de entorno (ajusta según tus necesidades)
+ENV ASPNETCORE_ENVIRONMENT=Production \
+    ASPNETCORE_URLS=http://+:5000 \
+    MY_SQL_CONNECTION="server=sql5.freesqldatabase.com;port=3306;database=sql5785850;user=sql5785850;password=IBpCRgqJJP;"
+
+# Comando de ejecución
+ENTRYPOINT ["dotnet", "Libros.dll"]
